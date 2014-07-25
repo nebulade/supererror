@@ -1,0 +1,11 @@
+{
+  "name": "supererror",
+  "version": "0.1.0",
+  "dependencies": {
+    "colors": {
+      "version": "0.6.2",
+      "from": "colors@^0.6.2",
+      "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz"
+    }
+  }
+}
