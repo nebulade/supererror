@@ -17,7 +17,7 @@ console.error = function () {
     }
 
     var pos = new Error().stack.split('\n')[2];
-    if (pos.indexOf(__dirname) >= 0) pos = pos.slice(pos.indexOf(__dirname) + __dirname.length).replace(')', '');
+    if (pos.indexOf('(') >= 0) pos = pos.slice(pos.indexOf('(') + 1).replace(')', '');
     args.push(String('[ ' + pos + ' ]').bold);
 
     if (errors.length > 0) args = args.concat(errors.map(function (e) {
