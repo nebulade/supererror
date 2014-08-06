@@ -2,17 +2,40 @@
 
 require('colors');
 
+var util = require('util');
+
 console.error = function () {
     'use strict';
 
     var args = ['ERROR'.red.bold];
+    var arg = null;
+
+    // convert arguments into real Array
+    var tmp = [];
+    for (arg in arguments) tmp.push(arguments[arg]);
+
+    // check for string interpolation
+    if (tmp[0]) {
+        var match = String(tmp[0]).match(/%[sdj]/g);
+        if (match) {
+            args.push(util.format.apply(null, tmp.slice(0, match.length + 1)));
+            tmp = tmp.slice(match.length + 1);
+        }
+    }
+
+    // extract errors
     var errors = [];
-    for (var arg in arguments) {
+    for (arg in arguments) {
         if (arguments[arg] instanceof Error) {
             errors.push(arguments[arg]);
-            args.push(arguments[arg].message);
+        }
+    }
+
+    for (arg in tmp) {
+        if (tmp[arg] instanceof Error) {
+            args.push(tmp[arg].message);
         } else {
-            args.push(arguments[arg]);
+            args.push(tmp[arg]);
         }
     }
 
