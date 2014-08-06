@@ -14,6 +14,12 @@ console.error = function () {
     var tmp = [];
     for (arg in arguments) tmp.push(arguments[arg]);
 
+    // just print empty logs like this
+    if (tmp.length === 0) {
+        console.log();
+        return;
+    }
+
     // check for string interpolation
     if (tmp[0]) {
         var match = String(tmp[0]).match(/%[sdj]/g);

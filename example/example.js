@@ -15,4 +15,5 @@ foobar(function (error) {
 });
 
 console.error('Found %d issues %s %j %s and an object %j', 2, 'error', new Error('a cat'), 'not a dog', { foo: 1 }, 'additional logs');
+console.error();
 console.error('Found %d more issues', 5, 'in the code');
