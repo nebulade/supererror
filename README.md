@@ -13,10 +13,12 @@ Usage
 
 require('supererror');
 
-console.error('foobar', { foo: 1234 }, new Error('error'), new Error('issue'));
+console.error('Some', new Error('transient error'), 'happened using', { some: 'value' });
+console.error();     // no info added
+console.error('Using %d as a %s.', 42, 'number');
 
 ```
 
 Results in
 
-![Screenshot](http://i.imgur.com/fvb4fGT.png)
+![Screenshot](http://i.imgur.com/FSNNrCG.png)
