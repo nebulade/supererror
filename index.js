@@ -1,12 +1,13 @@
 /* jslint node:true */
 
+'use strict';
+
 require('colors');
 
 var util = require('util');
 
+var originalError = console.error;
 console.error = function () {
-    'use strict';
-
     var args = ['ERROR'.red.bold];
     var arg = null;
 
@@ -16,7 +17,7 @@ console.error = function () {
 
     // just print empty logs like this
     if (tmp.length === 0) {
-        console.log();
+        originalError();
         return;
     }
 
@@ -54,5 +55,5 @@ console.error = function () {
         return '\n' + (e.message ? e.message : '').italic.bold + ' ' + e.stack.grey;
     }));
 
-    console.log.apply(console, args);
+    originalError.apply(console, args);
 };
