@@ -1,10 +1,10 @@
 supererror
 ==========
 
-This module provides colorful error logging. When included, it overwrites console.error.
-It will print the timestamp, file and line number when console.error() was called.
+This module provides colorful error logging. When included, it intercepts console.error.
+It will print the file and line number where console.error() was called.
 Any Error object passed into it as an argument, will be printed as a string, as well as
-the callstacks for all Error objects is printed at the end.
+the callstacks for all Error objects are printed at the end.
 
 Usage
 -----
