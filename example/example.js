@@ -2,8 +2,8 @@
 
 'use strict';
 
-// require('../index.js');
-require('../index.js')({ errorTag: '[HAPPY]'.rainbow });
+require('../index.js');
+// require('../index.js')({ errorTag: '[HAPPY]'.rainbow });
 
 console.error('foobar', { foo: 1234 }, new Error('some error'), new Error('another issue'));
 
@@ -19,6 +19,8 @@ console.error('Found %d issues %s %j %s and an object %j', 2, 'error', new Error
 console.error();
 console.error('Found %d more issues', 5, 'in the code');
 
+console.error();     // no info added
 console.error('Some', new Error('transient error'), 'happened using', { some: 'value' });
 console.error();     // no info added
 console.error('Using %d as a %s.', 42, 'number');
+console.error();     // no info added

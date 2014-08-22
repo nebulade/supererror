@@ -19,7 +19,7 @@ console.error('Using %d as a %s.', 42, 'number');
 
 Results in
 
-![Screenshot](http://i.imgur.com/FSNNrCG.png)
+![Screenshot](http://i.imgur.com/8DwaEru.png)
 
 Options
 -------
@@ -30,5 +30,7 @@ The module actually exports a function, which can be used to modify the behavior
 require('supererror')({ errorTag: '[HAPPY]'.rainbow });
 ```
 
- * errorTag: Change the error tag string (default `'[ERROR]'.red`);
+Available options:
+
+ * **errorTag** Change the error tag string. Use `null` or and empty string to not log an error tag. Default: `'[ERROR]'.red`
 
