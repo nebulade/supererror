@@ -10,15 +10,25 @@ Usage
 -----
 
 ```javascript
-
 require('supererror');
 
 console.error('Some', new Error('transient error'), 'happened using', { some: 'value' });
 console.error();     // no info added
 console.error('Using %d as a %s.', 42, 'number');
-
 ```
 
 Results in
 
 ![Screenshot](http://i.imgur.com/FSNNrCG.png)
+
+Options
+-------
+
+The module actually exports a function, which can be used to modify the behavior.
+
+```javascript
+require('supererror')({ errorTag: '[HAPPY]'.rainbow });
+```
+
+ * errorTag: Change the error tag string (default `'[ERROR]'.red`);
+

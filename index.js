@@ -6,9 +6,13 @@ require('colors');
 
 var util = require('util');
 
+var options = {
+    errorTag: 'ERROR'.red.bold
+};
+
 var originalError = console.error;
 console.error = function () {
-    var args = ['ERROR'.red.bold];
+    var args = options.errorTag ? [String(options.errorTag)] : [];
     var arg = null;
 
     // convert arguments into real Array
@@ -56,4 +60,13 @@ console.error = function () {
     }));
 
     originalError.apply(console, args);
+};
+
+module.exports = exports = function (_options) {
+    if (typeof _options !== 'object') return;
+    if (_options instanceof Array) return;
+
+    for (var p in _options) {
+        options[p] = _options[p];
+    }
 };
