@@ -3,6 +3,7 @@
 'use strict';
 
 require('../index.js');
+// require('../index.js')({ timestamp: true });
 // require('../index.js')({ errorTag: '[HAPPY]'.rainbow });
 
 console.error('foobar', { foo: 1234 }, new Error('some error'), new Error('another issue'));

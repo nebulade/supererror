@@ -28,9 +28,11 @@ The module actually exports a function, which can be used to modify the behavior
 
 ```javascript
 require('supererror')({ errorTag: '[HAPPY]'.rainbow });
+require('supererror')({ timestamp: true });
 ```
 
 Available options:
 
  * **errorTag** Change the error tag string. Use `null` or and empty string to not log an error tag. Default: `'[ERROR]'.red`
+ * **timestamp** Add the current timestamp in ISO string format . Default: `false`
 

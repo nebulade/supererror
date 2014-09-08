@@ -7,13 +7,16 @@ require('colors');
 var util = require('util');
 
 var options = {
-    errorTag: 'ERROR'.red.bold
+    errorTag: 'ERROR'.red.bold,
+    timestamp: false
 };
 
 var originalError = console.error;
 console.error = function () {
     var args = options.errorTag ? [String(options.errorTag)] : [];
     var arg = null;
+
+    if (options.timestamp) args.push((new Date()).toISOString().bold);
 
     // convert arguments into real Array
     var tmp = [];
