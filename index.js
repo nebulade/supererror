@@ -4,11 +4,24 @@
 
 require('colors');
 
-var util = require('util');
+var prettyjson = require('prettyjson'),
+    util = require('util');
 
 var options = {
     errorTag: 'ERROR'.red.bold,
-    timestamp: false
+    timestamp: false,
+    splatchError: false
+};
+
+function splatchError(error) {
+    var result = { };
+    Object.getOwnPropertyNames(error).forEach(function (key) {
+        var value = this[key];
+        if (value instanceof Error) value = splatchError(value);
+        result[key] = value;
+    }, error /* thisArg */);
+
+    return prettyjson.render(result);
 };
 
 var originalError = console.error;
@@ -59,6 +72,8 @@ console.error = function () {
     args.push(String('[ ' + pos + ' ]').bold);
 
     if (errors.length > 0) args = args.concat(errors.map(function (e) {
+        if (options.splatchError) return '\n' + splatchError(e);
+
         return '\n' + (e.message ? e.message : '').italic.bold + ' ' + e.stack.grey;
     }));
 
