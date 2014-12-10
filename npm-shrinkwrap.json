@@ -4,8 +4,18 @@
   "dependencies": {
     "colors": {
       "version": "0.6.2",
-      "from": "colors@^0.6.2",
+      "from": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz",
       "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz"
+    },
+    "prettyjson": {
+      "version": "1.0.0",
+      "from": "prettyjson@",
+      "dependencies": {
+        "minimist": {
+          "version": "0.0.8",
+          "from": "minimist@0.0.8"
+        }
+      }
     }
   }
 }
