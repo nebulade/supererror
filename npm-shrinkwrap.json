@@ -3,15 +3,20 @@
   "version": "0.6.0",
   "dependencies": {
     "colors": {
-      "version": "0.6.2",
-      "from": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz",
-      "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz"
+      "version": "1.0.3",
+      "from": "colors@>=1.0.3 <2.0.0",
+      "resolved": "https://registry.npmjs.org/colors/-/colors-1.0.3.tgz"
     },
     "prettyjson": {
-      "version": "1.0.0",
-      "from": "prettyjson@1.0.0",
-      "resolved": "https://registry.npmjs.org/prettyjson/-/prettyjson-1.0.0.tgz",
+      "version": "1.1.0",
+      "from": "prettyjson@>=1.1.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/prettyjson/-/prettyjson-1.1.0.tgz",
       "dependencies": {
+        "colors": {
+          "version": "0.6.2",
+          "from": "colors@0.6.2",
+          "resolved": "https://registry.npmjs.org/colors/-/colors-0.6.2.tgz"
+        },
         "minimist": {
           "version": "0.0.8",
           "from": "minimist@0.0.8",
