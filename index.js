@@ -22,7 +22,7 @@ function splatchError(error) {
     }, error /* thisArg */);
 
     return prettyjson.render(result);
-};
+}
 
 var originalError = console.error;
 console.error = function () {
